@@ -1,13 +1,13 @@
 import { Server } from "socket.io"
-import { createServer } from "node:http"
+import { createServer } from "http"
 import express from "express";
 import logger from "morgan"
 import dotenv from "dotenv"
 import { createClient } from "@libsql/client";
-
+import {cors} from 'cors'
 dotenv.config()
 const port = process.env.PORT ?? 4001;
-
+app.use(cors());
 const app = express();
 const server = createServer(app)
 
@@ -25,6 +25,10 @@ await db.execute(`
 `)
 
 const io = new Server(server, {
+    cors:{
+        origin:'*',
+        methods: ["GET", "POST"]
+    },
     connectionStateRecovery: {}
 })
 
