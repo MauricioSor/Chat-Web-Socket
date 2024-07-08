@@ -22,7 +22,7 @@ await db.execute(`
         content TEXT,
         user TEXT
     )
-  `)
+`)
 
 const io = new Server(server, {
     connectionStateRecovery: {}
