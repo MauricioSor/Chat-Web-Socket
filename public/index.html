@@ -19,7 +19,7 @@
             localStorage.setItem('username', randomUsername)
             return randomUsername
         }
-        const socketURL = window.location.hostname === 'localhost' ? 'http://localhost:4001' : process.env.URL_WEB;
+        const socketURL = window.location.hostname === 'localhost' ? 'http://localhost:4001' : window.location.hostname;
         const socket = io(socketURL,{
             auth: {
                 username: await getUsername(),
