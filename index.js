@@ -78,8 +78,8 @@ app.get("/", (req, res) => {
     res.sendFile(process.cwd() + "/public/index.html")
 })
 const __dirname=dirname(fileURLToPath(import.meta.url))
-console.log(__dirname)
-
+console.log(__dirname);
+console.log(port);
 server.listen(port, () => {
     console.log(`Corriendo servidor en el puerto ${port}`)
 })
