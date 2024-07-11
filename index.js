@@ -76,10 +76,12 @@ io.on('connection', async(socket) => {
 app.use(logger('dev'));
 app.get("/", (req, res) => {
     res.sendFile(process.cwd() + "/public/index.html")
+    res.write(`<h1>${port}</h1>`)
 })
 const __dirname=dirname(fileURLToPath(import.meta.url))
 console.log(__dirname);
 console.log(port);
+
 server.listen(port, () => {
     console.log(`Corriendo servidor en el puerto ${port}`)
 })
