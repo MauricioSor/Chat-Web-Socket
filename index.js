@@ -8,7 +8,7 @@ import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
 dotenv.config()
-const port = process.env.PORT|| 4001;
+const port = process.env.PORT ?? 4001;
 const app = express();
 const server = createServer(app)
 
@@ -74,17 +74,12 @@ io.on('connection', async(socket) => {
 
 })
 app.use(logger('dev'));
-
-/* app.get("/", (req, res) => {
-    res.sendFile(process.cwd() + "/public/index.html")
-}) */
-// Middleware para servir archivos estáticos desde la carpeta 'public'
-app.use(express.static(path.join(__dirname, '../public')));
-
-// Ruta para servir el archivo index.html
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+    res.sendFile(process.cwd() + "/public/index.html")
+})
+const __dirname=dirname(fileURLToPath(import.meta.url))
+console.log(__dirname)
+
 server.listen(port, () => {
     console.log(`Corriendo servidor en el puerto ${port}`)
 })

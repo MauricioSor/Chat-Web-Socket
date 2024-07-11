@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node --watch ./server/index.js",
+    "build": "babel ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,5 +19,11 @@
     "express": "4.19.2",
     "morgan": "1.10.0",
     "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7"
   }
 }
